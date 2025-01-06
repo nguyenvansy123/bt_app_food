@@ -56,6 +56,8 @@ const ratingService = {
 
         if (rateExist) throw new BadRequestException('Người dùng đã đánh giá nhà hàng này');
 
+        if (amount > 5) throw new BadRequestException('đánh giá nhà hàng trong khoảng 0->5');
+
         const rateResNew = await models.rate_res.create({ res_id, user_id, amount, date_rate: new Date() });
 
         return rateResNew;

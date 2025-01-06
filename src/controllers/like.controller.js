@@ -4,7 +4,7 @@ import likeService from "../services/like.service.js";
 const likeController = {
     getLikesByRestaurant: async (req, res, next) => {
         try {
-            const data = await likeService.getLikeRestaurant(req, res, next);
+            const data = await likeService.getLikesByRestaurant(req, res, next);
             const resData = responseSuccess(data, 'Lấy danh sách like theo nhà hàng thành công', 200);
             res.status(resData.code).json(resData);
         } catch (error) {
